@@ -1,25 +1,45 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import "./App.css";
+import Inicio from "./components/views/Inicio";
 import Administrador from "./components/views/Administrador";
 import Error404 from "./components/views/Error404";
-import Inicio from "./components/views/Inicio";
+import DetalleProducto from "./components/views/DetalleProducto";
+import CrearProducto from "./components/views/producto/CrearProducto";
+import EditarProducto from "./components/views/producto/EditarProducto";
 import Menu from "./components/common/Menu";
 import Footer from "./components/common/Footer";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
 
 function App() {
   return (
     <BrowserRouter>
+      <Menu></Menu>
       <Routes>
         <Route exact path="/" element={<Inicio></Inicio>}></Route>
         <Route
           exact
           path="/administrador"
           element={<Administrador></Administrador>}
+        />
+        {/* <Route exact path='/footer' element={<Footer></Footer>} /> */}
+        <Route
+          exact
+          path="/administrar/crear"
+          element={<CrearProducto></CrearProducto>}
         ></Route>
-        <Route exact path="/menu" element={<Menu></Menu>}></Route>
-        <Route exact path="/footer" element={<Footer></Footer>}></Route>
-        <Route exact path="*" element={<Error404></Error404>}></Route>
+        <Route
+          exact
+          path="/administrar/editar"
+          element={<EditarProducto></EditarProducto>}
+        ></Route>
+        <Route
+          exact
+          path="/detalle-producto"
+          element={<DetalleProducto></DetalleProducto>}
+        ></Route>
+        <Route path="*" element={<Error404></Error404>} />
       </Routes>
+      <Footer></Footer>
     </BrowserRouter>
   );
 }
