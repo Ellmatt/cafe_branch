@@ -5,7 +5,7 @@ const Menu = () => {
     <Navbar bg="danger" variant="dark" expand="lg">
       <Container>
         <Navbar.Brand as={Link} to='/'>
-          Benito Santos
+         Cafe Branch
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

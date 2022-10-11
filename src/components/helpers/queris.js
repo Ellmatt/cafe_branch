@@ -2,6 +2,13 @@
 
 const URL = "http://localhost:3004/productos";
 
+// tipo de peticiones
+// peticion GET trae todos los productos
+// peticion POST, crear producto, login
+// peticion DELETE, peticion para borrar
+// peticion PUT, peticon
+
+
 export const  consultarApi = async () => {
   try {
     // fetch para peticiones
