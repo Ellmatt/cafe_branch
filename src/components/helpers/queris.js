@@ -6,7 +6,7 @@ const URL = "http://localhost:3004/productos";
 // peticion GET trae todos los productos
 // peticion POST, crear producto, login
 // peticion DELETE, peticion para borrar
-// peticion PUT, peticon
+// peticion PUT, peticon que pide modificar un producto
 
 export const consultarApi = async () => {
   try {
@@ -23,7 +23,7 @@ export const consultarApi = async () => {
 };
 
 // peticion POST
-export const crearProductoAPI = async () => {
+export const crearProductoAPI = async (producto) => {
   try {
     // fetch para peticiones
     // await para esperar
@@ -34,7 +34,7 @@ export const crearProductoAPI = async () => {
       },
       body: JSON.stringify(producto),
     });
-    // .json extrae datos en la propieda de la respuesta
+    // .json extrae datos en la propiedad de la respuesta
     const listaProductos = await respuesta.json();
     // console.log(respuesta)
     return listaProductos;
@@ -42,3 +42,25 @@ export const crearProductoAPI = async () => {
     console.log(error);
   }
 };
+
+// peticion put
+
+// export const crearProductoAPI = async (producto) => {
+//   try {
+//     // fetch para peticiones
+//     // await para esperar
+//     const respuesta = await fetch(URL, {
+//       method: "PUT",
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//       body: JSON.stringify(producto),
+//     });
+//     // .json extrae datos en la propieda de la respuesta
+//     const listaProductos = await respuesta.json();
+//     // console.log(respuesta)
+//     return listaProductos;
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
