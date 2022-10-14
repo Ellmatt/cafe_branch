@@ -10,7 +10,7 @@ const CrearProducto = () => {
   } = useForm({
     defaultValues: {
       nombreProducto: "",
-      precio: 1,
+      precio: '',
       imagen: "",
       categoria: "",
     },
