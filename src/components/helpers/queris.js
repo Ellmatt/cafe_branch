@@ -23,7 +23,7 @@ export const consultarApi = async () => {
 };
 
 // peticion POST
-export const crearProductoAPI = async () => {
+export const crearProductoAPI = async (producto) => {
   try {
     // fetch para peticiones
     // await para esperar
