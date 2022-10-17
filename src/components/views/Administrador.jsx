@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from "react";
-import { Button, Table } from "react-bootstrap";
+import {  Table } from "react-bootstrap";
 import {consultarApi}from '../helpers/queris'
 import ItemProducto from "./producto/ItemProducto";
 import {Link} from 'react-router-dom'
@@ -49,7 +49,7 @@ consultarApi().then((respuesta)=>{
         </thead>
         <tbody>
        {
-        productos.map((producto)=> <ItemProducto key={producto.id} producto={producto}></ItemProducto> )
+        productos.map((producto)=> <ItemProducto key={producto.id} producto={producto} setProductos={setProductos}></ItemProducto> )
        }
          
         </tbody>
