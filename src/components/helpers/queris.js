@@ -34,10 +34,8 @@ export const crearProductoAPI = async (producto) => {
       },
       body: JSON.stringify(producto),
     });
-    // .json extrae datos en la propiedad de la respuesta
-    const listaProductos = await respuesta.json();
-    // console.log(respuesta)
-    return listaProductos;
+    
+    return respuesta;
   } catch (error) {
     console.log(error);
   }

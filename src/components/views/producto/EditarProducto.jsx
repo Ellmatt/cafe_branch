@@ -19,11 +19,11 @@ const EditarProducto = () => {
     console.log("desde nuestra funcion submit");
   };
   return (
-    <section className="container mainSection">
+    <section className="container mainSection ">
       <h1 className="display-4 mt-5">Editar producto</h1>
       <hr />
       {/* <Form onSubmit={handleSubmit}> */}
-      <Form onSubmit={handleSubmit(onSubmit)}>
+      <Form onSubmit={handleSubmit(onSubmit)} className='my-5'>
         <Form.Group className="mb-3" controlId="formNombreProdcuto">
           <Form.Label>Nombre producto*</Form.Label>
           <Form.Control type="text" placeholder="Ej: Cafe" 
