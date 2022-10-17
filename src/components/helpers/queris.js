@@ -41,7 +41,7 @@ export const crearProductoAPI = async (producto) => {
   }
 };
 
-// peticion put
+// peticion delete
 
 // export const crearProductoAPI = async (producto) => {
 //   try {
