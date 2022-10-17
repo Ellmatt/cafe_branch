@@ -2,6 +2,10 @@ import { Form, Button } from "react-bootstrap";
 import {useForm} from 'react-hook-form'
 
 const EditarProducto = () => {
+  // useEffect(() => {
+   
+  // }, [third])
+  
   const {
     register,
     handleSubmit,

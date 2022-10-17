@@ -44,8 +44,8 @@ const ItemProducto = (props) => {
       <td>{props.producto.imagen}</td>
       <td>{props.producto.categoria}</td>
       <td>
-        <Link className="btn btn-warning" to="/administrar/editar">
-          editar
+        <Link className="btn btn-warning" to={`/administrar/editar/${props.producto.id}`}>
+          Editar
         </Link>
         <Button className="btn btn-danger" onClick={borrarProducto}>
           Borrar

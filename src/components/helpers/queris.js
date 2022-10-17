@@ -1,6 +1,7 @@
 // archivo que nos sirve para hacer las consultas a la ap jsonsv
 
 const URL = "http://localhost:3004/productos";
+const URLuser = "http://localhost:3004/usuarios"
 
 // tipo de peticiones
 // peticion GET trae todos los productos
@@ -51,6 +52,39 @@ export const borrarProductoAPI = async (id) => {
       method: "DELETE"
     });
    
+    return respuesta;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+
+export const cobtenerProductoApi = async (id) => {
+  try {
+    // fetch para peticiones
+    // await para esperar
+    const respuesta = await fetch(URL+'/'+id);
+    // .json extrae datos en la propieda de la respuesta
+    const productoBuscado = await respuesta.json();
+    // console.log(respuesta)
+    return productoBuscado;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const crearUsuarioAPI = async (usuarios) => {
+  try {
+    // fetch para peticiones
+    // await para esperar
+    const respuesta = await fetch(URLuser, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(usuarios),
+    });
+    
     return respuesta;
   } catch (error) {
     console.log(error);
