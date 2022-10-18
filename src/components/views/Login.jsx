@@ -7,14 +7,16 @@ import Swal from "sweetalert2";const Login = () => {
     register,
     handleSubmit,
     formState: { errors },
+    reset
   } = useForm({
     defaultValues: {
       email: "",
       password: "",
+      
     },
   });
   // inicializar a useNavigate
-  const navegacion = useNavigate();
+  // const navegacion = useNavigate();
 
 
   const onSubmit = (datos) => {
@@ -23,22 +25,22 @@ import Swal from "sweetalert2";const Login = () => {
     // enviar lo datos a la api
     // .then es para dar todo el tiempo del mundo y lugo de tener la respuesta hacer el codigo entre ()
     // en el parametro se puede usar cualquier nombre pero para mayor presicion usar la misma palabra del return de queris
-    crearUsuarioAPI(datos).then((respuesta) => {
-      if (respuesta.status === 201) {
-        // el producto se creo
-        Swal.fire(
-          "Producto creado",
-          "El producto a sido creado correctamente",
-          "success"
-        );
+    // crearUsuarioAPI(datos).then((respuesta) => {
+    //   if (respuesta.status === 201) {
+    //     // el producto se creo
+    //     Swal.fire(
+    //       "Inicio de sesion exitoso",
+    //       "Has iniciado sesion correctamente",
+    //       "success"
+    //     );
        
-        // redireccionar
-        navegacion('/administrador')
-      } else {
-        // mostrar error al usuario
-        Swal.fire("Ocurrio un error", "Vuelva a intentarlo más tarde", "error");
-      }
-    });
+    //     // redireccionar
+    //     navegacion('/')
+    //   } else {
+    //     // mostrar error al usuario
+    //     Swal.fire("Ocurrio un error", "Vuelva a intentarlo más tarde", "error");
+    //   }
+    // });
   };
   return (
     <section className="container mainSection">

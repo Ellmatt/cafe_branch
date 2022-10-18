@@ -1,7 +1,12 @@
 import React from "react";
 import { Button, Card } from "react-bootstrap";
+import { consultarApi } from "../../helpers/queris";
 
 const CardProducto = () => {
+  // consultarApi().then((respuesta)=>{
+  //   console.log(respuesta)
+   
+  // })
   return (
     <Card className="my-4">
       <Card.Img

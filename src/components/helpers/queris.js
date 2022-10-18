@@ -1,7 +1,7 @@
 // archivo que nos sirve para hacer las consultas a la ap jsonsv
 
 const URL = "http://localhost:3004/productos";
-const URLuser = "http://localhost:3004/usuarios"
+const URLuser = "http://localhost:3004/usuarios";
 
 // tipo de peticiones
 // peticion GET trae todos los productos
@@ -16,7 +16,7 @@ export const consultarApi = async () => {
     const respuesta = await fetch(URL);
     // .json extrae datos en la propieda de la respuesta
     const listaProductos = await respuesta.json();
-    // console.log(respuesta)
+    console.log(respuesta);
     return listaProductos;
   } catch (error) {
     console.log(error);
@@ -35,7 +35,7 @@ export const crearProductoAPI = async (producto) => {
       },
       body: JSON.stringify(producto),
     });
-    
+
     return respuesta;
   } catch (error) {
     console.log(error);
@@ -48,24 +48,27 @@ export const borrarProductoAPI = async (id) => {
   try {
     // fetch para peticiones
     // await para esperar
-    const respuesta = await fetch(URL+'/'+id, {
-      method: "DELETE"
+    const respuesta = await fetch(URL + "/" + id, {
+      method: "DELETE",
     });
-   
+
     return respuesta;
   } catch (error) {
     console.log(error);
   }
 };
 
-
-export const cobtenerProductoApi = async (id) => {
+export const obtenerProductoApi = async (id) => {
   try {
     // fetch para peticiones
     // await para esperar
-    const respuesta = await fetch(URL+'/'+id);
+    const respuesta = await fetch(URL + "/" + id);
     // .json extrae datos en la propieda de la respuesta
-    const productoBuscado = await respuesta.json();
+    const productoBuscado = {
+      dato: await respuesta.json(),
+      status: respuesta.status,
+    };
+
     // console.log(respuesta)
     return productoBuscado;
   } catch (error) {
@@ -84,7 +87,7 @@ export const crearUsuarioAPI = async (usuarios) => {
       },
       body: JSON.stringify(usuarios),
     });
-    
+
     return respuesta;
   } catch (error) {
     console.log(error);
