@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import { Form, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import { obtenerProductoApi } from "../../helpers/queris";
+import { editarProductoApi, obtenerProductoApi } from "../../helpers/queris";
 
 const EditarProducto = () => {
   // extraer el parametr ode la ruta
@@ -13,11 +13,11 @@ const EditarProducto = () => {
     obtenerProductoApi(id).then((respuesta) => {
       if (respuesta.status === 200) {
         // cargar  los datos de la respuesta en el form
-        setValue('nombreProducto', respuesta.dato.nombreProducto)
-        setValue('precio', respuesta.dato.precio)
-        setValue('imagen', respuesta.dato.imagen)
-        setValue('categoria', respuesta.dato.categoria)
-        
+        setValue("nombreProducto", respuesta.dato.nombreProducto);
+        setValue("precio", respuesta.dato.precio);
+        setValue("imagen", respuesta.dato.imagen);
+        setValue("categoria", respuesta.dato.categoria);
+
         console.log(respuesta);
       } else {
         Swal.fire(
@@ -33,7 +33,7 @@ const EditarProducto = () => {
     register,
     handleSubmit,
     formState: { errors },
-    setValue
+    setValue,
   } = useForm({
     defaultValues: {
       nombreProducto: "",
@@ -42,9 +42,29 @@ const EditarProducto = () => {
       categoria: "",
     },
   });
+
+  const navegacion = useNavigate();
+
   const onSubmit = (producto) => {
     console.log(producto);
-  //  aqui quiero enviar la peticion a la api para actualizar los datos del producto
+    //  aqui quiero enviar la peticion a la api para actualizar los datos del producto
+    editarProductoApi(id, producto).then((respuesta) => {
+      if (respuesta.status === 200) {
+        Swal.fire(
+          "Producto actualizado",
+          "El producto fue actualizado correctamente",
+          "success"
+        );
+        // redireccion
+        navegacion("/administrador");
+      } else {
+        Swal.fire(
+          "ocurrio un error",
+          "intente este de nuevo en unos minutos",
+          "error"
+        );
+      }
+    });
   };
   return (
     <section className="container mainSection ">

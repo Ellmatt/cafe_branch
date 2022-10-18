@@ -93,3 +93,19 @@ export const crearUsuarioAPI = async (usuarios) => {
     console.log(error);
   }
 };
+export const editarProductoApi = async (id, datosActualizados) => {
+  try {
+    // fetch para peticiones
+    // await para esperar
+    const respuesta = await fetch(URL + "/" + id, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(datosActualizados),
+    });
+    return respuesta;
+  } catch (error) {
+    console.log(error);
+  }
+};
