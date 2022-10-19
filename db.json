@@ -3,21 +3,21 @@
     {
       "nombreProducto": "licuado v1",
       "precio": 50,
-      "imagen": "https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "imagen": "https://images.pexels.com/photos/8805081/pexels-photo-8805081.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       "categoria": "bebida fria",
       "id": 3
     },
     {
       "nombreProducto": "mate",
       "precio": "10",
-      "imagen": "https://www.pexels.com/es-es/foto/foto-de-primer-plano-del-vaso-starbucks-negro-2608410/",
+      "imagen": "https://images.pexels.com/photos/2608410/pexels-photo-2608410.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       "categoria": "bebida caliente",
       "id": 6
     },
     {
       "nombreProducto": "mate frio",
       "precio": "22",
-      "imagen": "https://www.leagueofgraphs.com/",
+      "imagen": "https://images.pexels.com/photos/5239526/pexels-photo-5239526.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       "categoria": "bebida fria",
       "id": 7
     }
