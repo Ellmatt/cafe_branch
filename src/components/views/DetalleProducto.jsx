@@ -1,22 +1,45 @@
-import { Badge, Card, Col, Row } from 'react-bootstrap';
+import { Badge, Card, Col, Row, Image } from "react-bootstrap";
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import Swal from "sweetalert2";
+import { obtenerProductoApi } from "../helpers/queris";
 
 const DetalleProducto = () => {
-    
-    return (
-        <Card className='container my-5 mainSection'>
-            <Row className='w-75'>
-                <Col md={6}>
-                    <img src='https://images.pexels.com/photos/887853/pexels-photo-887853.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' alt='brownie' className="w-100" />
-                </Col>
-                <Col md={6} className="py-3">
-                <h3>Brownie</h3>
-                <hr/>
-                <Badge bg="success">Dulce</Badge>
-                <p className='mt-3'><b>Precio: $300</b></p>
-                </Col>
-            </Row>
-        </Card>
-    );
+  const [detalle, setDetalle] = useState([]);
+
+  const { id } = useParams();
+
+  useEffect(() => {
+    obtenerProductoApi(id).then((respuesta) => {
+      if (respuesta.status === 200) {
+        setDetalle(respuesta.dato);
+      } else {
+        Swal.fire(
+          "ocurrio un error",
+          "intente este de nuevo en unos minutos",
+          "error"
+        );
+      }
+    });
+  }, []);
+
+  return (
+    <Card className="container my-5 mainSection">
+      <Row className="w-75">
+        <Col md={6}>
+          <Image src={detalle.imagen} alt="brownie" className="w-100" />
+        </Col>
+        <Col md={6} className="py-3">
+          <Card.Title>{detalle.nombreProducto}</Card.Title>
+          <hr />
+          <Badge bg="success">{detalle.categoria}</Badge>
+          <Card.Text className="mt-3">
+            <b>Precio: ${detalle.precio}</b>
+          </Card.Text>
+        </Col>
+      </Row>
+    </Card>
+  );
 };
 
 export default DetalleProducto;

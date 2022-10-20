@@ -26,6 +26,7 @@ const Inicio = () => {
             precio={objeto.precio}
             imagen={objeto.imagen}
             categoria={objeto.categoria}
+            id={objeto.id}
           ></CardProducto>
         ))}
       </Row>

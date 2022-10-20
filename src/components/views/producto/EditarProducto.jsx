@@ -17,6 +17,7 @@ const EditarProducto = () => {
         setValue("precio", respuesta.dato.precio);
         setValue("imagen", respuesta.dato.imagen);
         setValue("categoria", respuesta.dato.categoria);
+      
 
         console.log(respuesta);
       } else {
