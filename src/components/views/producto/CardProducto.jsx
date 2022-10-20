@@ -1,12 +1,8 @@
 import React, { useState } from "react";
 import { Card } from "react-bootstrap";
-import { Link, useParams } from "react-router-dom";
+import { Link} from "react-router-dom";
 
-import { useEffect } from "react";
-import { useForm } from "react-hook-form";
 
-import Swal from "sweetalert2";
-import { obtenerProductoApi, consultarApi } from "../../helpers/queris";
 
 const CardProducto = (props) => {
   return (
