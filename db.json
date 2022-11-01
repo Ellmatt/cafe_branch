@@ -1,10 +1,10 @@
 {
   "productos": [
     {
-      "nombreProducto": "licuado v1",
+      "nombreProducto": "licuado v13",
       "precio": 50,
       "imagen": "https://images.pexels.com/photos/8805081/pexels-photo-8805081.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      "categoria": "bebida fria",
+      "categoria": "bebida caliente",
       "id": 3
     },
     {
@@ -15,8 +15,8 @@
       "id": 6
     },
     {
-      "nombreProducto": "mate frio",
-      "precio": "22",
+      "nombreProducto": "mate frio v2",
+      "precio": "23",
       "imagen": "https://images.pexels.com/photos/5239526/pexels-photo-5239526.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       "categoria": "bebida fria",
       "id": 7
