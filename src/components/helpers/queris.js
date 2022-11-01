@@ -1,6 +1,7 @@
 // archivo que nos sirve para hacer las consultas a la ap jsonsv
 
-const URL = "http://localhost:3004/productos";
+// const URL = "http://localhost:3004/productos";
+const URL = "http://localhost:4001/apicafe/productos";
 const URLuser = "http://localhost:3004/usuarios";
 
 // tipo de peticiones

@@ -19,14 +19,14 @@ const Inicio = () => {
       <hr />
       <Row xs={1} md={4} className="g-4">
         {/* aqui van las columnas */}
-        {producto.map((objeto, id) => (
+        {producto.map((objeto, _id) => (
           <CardProducto
-            key={id}
+            key={_id}
             nombreProducto={objeto.nombreProducto}
             precio={objeto.precio}
             imagen={objeto.imagen}
             categoria={objeto.categoria}
-            id={objeto.id}
+            id={objeto._id}
           ></CardProducto>
         ))}
       </Row>
