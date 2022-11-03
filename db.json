@@ -22,19 +22,11 @@
       "id": 7
     }
   ],
+
+
+
   "usuarios": [
-    {
-      "nombreUsuario": "matias",
-      "email": "mahumada486@gmail.com",
-      "password": "matias123",
-      "id": 3
-    },
-    {
-      "nombreUsuario": "matias2",
-      "email": "mahumada486@gmail.com",
-      "password": "matias123",
-      "id": 4
-    },
+    
     {
       "email": "cuentaparacuentas345@gmail.com",
       "password": "Peoito123?",
@@ -54,6 +46,11 @@
       "email": "pagosptcmatias@gmail.com",
       "password": "Peoito123?",
       "id": 8
+    },
+    {
+      "email": "matiaselkpo69@hotmail.com",
+      "password": "Peoito123?",
+      "id": 9
     }
   ]
 }

@@ -79,6 +79,59 @@ export const obtenerProductoApi = async (id) => {
   }
 };
 
+
+
+export const consultarApiUsuario = async (usuario) => {
+  console.log(usuario)
+  try {
+    
+    // fetch para peticiones
+    // await para esperar
+    const respuesta = await fetch(URLuser);
+    // .json extrae datos en la propieda de la respuesta
+    const listaUsuarios = await respuesta.json();
+    const usuarioBuscado = listaUsuarios.find((itemUsuario)=> itemUsuario.email === usuario.email )
+    console.log(respuesta);
+
+    if(usuarioBuscado){
+      console.log('email encontrado')
+      //verificar el password
+      if(usuarioBuscado.password === usuario.password ){
+        console.log('pass encontrada')
+        return usuarioBuscado
+      }
+    }else{
+      console.log('el mail no existe')
+      return
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+// export const login = async (usuario) =>{
+//   try{
+//     //verificar si el usuario existe
+//     const respuesta = await fetch(URL_USER);
+//     const listaUsuarios = await respuesta.json();
+//     //buscar cual usuario tiene mi mail
+//     const usuarioBuscado = listaUsuarios.find((itemUsuario)=> itemUsuario.email === usuario.email )
+//     if(usuarioBuscado){
+//       console.log('email encontrado')
+//       //verificar el password
+//       if(usuarioBuscado.password === usuario.password ){
+//         return usuarioBuscado
+//       }
+//     }else{
+//       console.log('el mail no existe')
+//       return
+//     }
+//   }catch(error){
+//     console.log('errores en el login')
+//     return
+//   }
+// }
+
+
 export const crearUsuarioAPI = async (usuarios) => {
   try {
     // fetch para peticiones
