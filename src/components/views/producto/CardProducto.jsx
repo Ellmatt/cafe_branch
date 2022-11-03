@@ -7,7 +7,7 @@ import { Link} from "react-router-dom";
 const CardProducto = (props) => {
   return (
     <Card className="my-4">
-      <Card.Img variant="top" src={props.imagen} className="img-fluid" />
+      <Card.Img variant="top" src={props.imagen} className="" />
       <Card.Body>
         <Card.Title>{props.nombreProducto}</Card.Title>
         <Card.Subtitle>{props.categoria}</Card.Subtitle>
