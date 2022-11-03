@@ -1,7 +1,8 @@
 // archivo que nos sirve para hacer las consultas a la ap jsonsv
 
 // const URL = "http://localhost:3004/productos";
-const URL = "http://localhost:4001/apicafe/productos";
+const URL = process.env.REACT_APP_API_CAFE;
+console.log(URL)
 const URLuser = "http://localhost:3004/usuarios";
 
 // tipo de peticiones
@@ -36,8 +37,9 @@ export const crearProductoAPI = async (producto) => {
       },
       body: JSON.stringify(producto),
     });
-
+    console.log(respuesta)
     return respuesta;
+    
   } catch (error) {
     console.log(error);
   }
