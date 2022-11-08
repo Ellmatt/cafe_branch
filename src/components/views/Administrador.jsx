@@ -7,10 +7,9 @@ import { Link } from "react-router-dom";
 const Administrador = () => {
   const [productos, setProductos] = useState([]);
   useEffect(() => {
-    // opcion 1
-    // cuando se termina la promesa se ejecuta el then
+ 
     consultarApi().then((respuesta) => {
-      // console.log(respuesta)
+
       setProductos(respuesta);
     });
   }, []);

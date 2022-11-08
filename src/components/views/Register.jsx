@@ -8,36 +8,31 @@ const Register = () => {
     register,
     handleSubmit,
     formState: { errors },
-    reset
+
   } = useForm({
     defaultValues: {
       email: "",
       password: "",
     },
   });
-  // inicializar a useNavigate
+
   const navegacion = useNavigate();
 
 
   const onSubmit = (datos) => {
-    // los datos ya estan validados
-    console.log(datos);
-    // enviar lo datos a la api
-    // .then es para dar todo el tiempo del mundo y lugo de tener la respuesta hacer el codigo entre ()
-    // en el parametro se puede usar cualquier nombre pero para mayor presicion usar la misma palabra del return de queris
+   
     crearUsuarioAPI(datos).then((respuesta) => {
       if (respuesta.status === 201) {
-        // el producto se creo
         Swal.fire(
           "Usuario Creado",
           "Has iniciado sesion correctamente",
           "success"
         );
-       reset('')
-        // redireccionar
-        // navegacion('/')
+
+        
+        navegacion('/')
       } else {
-        // mostrar error al usuario
+
         Swal.fire("Ocurrio un error", "Vuelva a intentarlo más tarde", "error");
       }
     });
@@ -47,7 +42,7 @@ const Register = () => {
       <h1 className="display-4 mt-5">Register
       </h1>
       <hr />
-      {/* <Form onSubmit={handleSubmit}> */}
+
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Form.Group className="mb-3" controlId="formNombreProdcuto">
           <Form.Label>Email*</Form.Label>

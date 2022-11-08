@@ -4,13 +4,10 @@ import Swal from "sweetalert2";
 import { crearProductoAPI } from "../../helpers/queris";
 import { useNavigate } from "react-router-dom";
 const CrearProducto = () => {
-  // inicializar react hook form
-
   const {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
   } = useForm({
     defaultValues: {
       nombreProducto: "",
@@ -20,29 +17,19 @@ const CrearProducto = () => {
     },
   });
 
-  // inicializar a useNavigate
   const navegacion = useNavigate();
 
-
   const onSubmit = (datos) => {
-    // los datos ya estan validados
-    console.log(datos);
-    // enviar lo datos a la api
-    // .then es para dar todo el tiempo del mundo y lugo de tener la respuesta hacer el codigo entre ()
-    // en el parametro se puede usar cualquier nombre pero para mayor presicion usar la misma palabra del return de queris
     crearProductoAPI(datos).then((respuesta) => {
       if (respuesta.status === 201) {
-        // el producto se creo
         Swal.fire(
           "Producto creado",
           "El producto a sido creado correctamente",
           "success"
         );
-        reset();
-        // redireccionar
-        navegacion('/administrador')
+
+        navegacion("/administrador");
       } else {
-        // mostrar error al usuario
         Swal.fire("Ocurrio un error", "Vuelva a intentarlo más tarde", "error");
       }
     });
@@ -52,7 +39,7 @@ const CrearProducto = () => {
     <section className="container mainSection">
       <h1 className="display-4 mt-5">Nuevo producto</h1>
       <hr />
- 
+
       <Form onSubmit={handleSubmit(onSubmit)} className="my-5">
         <Form.Group className="mb-3" controlId="formNombreProdcuto">
           <Form.Label>Nombre producto*</Form.Label>

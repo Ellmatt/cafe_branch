@@ -8,7 +8,7 @@ const Inicio = () => {
  
   useEffect(() => {
     consultarApi().then((respuesta) => {
-      console.log(respuesta);
+
       setProducto(respuesta);
     });
   }, [])
@@ -18,7 +18,7 @@ const Inicio = () => {
       <h1 className="display-3 text-center">Bienvenidos</h1>
       <hr />
       <Row xs={1} md={4} className="g-4">
-        {/* aqui van las columnas */}
+
         {producto.map((objeto, _id) => (
           <CardProducto
             key={_id}

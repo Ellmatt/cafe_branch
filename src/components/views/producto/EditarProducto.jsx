@@ -6,20 +6,15 @@ import Swal from "sweetalert2";
 import { editarProductoApi, obtenerProductoApi } from "../../helpers/queris";
 
 const EditarProducto = () => {
-  // extraer el parametr ode la ruta
   const { id } = useParams();
 
   useEffect(() => {
     obtenerProductoApi(id).then((respuesta) => {
       if (respuesta.status === 200) {
-        // cargar  los datos de la respuesta en el form
         setValue("nombreProducto", respuesta.dato.nombreProducto);
         setValue("precio", respuesta.dato.precio);
         setValue("imagen", respuesta.dato.imagen);
         setValue("categoria", respuesta.dato.categoria);
-      
-
-        console.log(respuesta);
       } else {
         Swal.fire(
           "ocurrio un error",
@@ -48,7 +43,6 @@ const EditarProducto = () => {
 
   const onSubmit = (producto) => {
     console.log(producto);
-    //  aqui quiero enviar la peticion a la api para actualizar los datos del producto
     editarProductoApi(id, producto).then((respuesta) => {
       if (respuesta.status === 200) {
         Swal.fire(
@@ -56,7 +50,6 @@ const EditarProducto = () => {
           "El producto fue actualizado correctamente",
           "success"
         );
-        // redireccion
         navegacion("/administrador");
       } else {
         Swal.fire(
@@ -71,7 +64,6 @@ const EditarProducto = () => {
     <section className="container mainSection ">
       <h1 className="display-4 mt-5">Editar producto</h1>
       <hr />
-      {/* <Form onSubmit={handleSubmit}> */}
       <Form onSubmit={handleSubmit(onSubmit)} className="my-5">
         <Form.Group className="mb-3" controlId="formNombreProdcuto">
           <Form.Label>Nombre producto*</Form.Label>

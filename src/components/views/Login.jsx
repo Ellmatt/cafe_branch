@@ -8,7 +8,7 @@ const Login = () => {
     register,
     handleSubmit,
     formState: { errors },
-    reset
+
   } = useForm({
     defaultValues: {
       email: "",
@@ -16,33 +16,31 @@ const Login = () => {
       
     },
   });
-  // inicializar a useNavigate
-  // const navegacion = useNavigate();
+
+  const navegacion = useNavigate();
 
 
   const onSubmit = (datos) => {
-    // los datos ya estan validados
+   
     console.log(datos);
-    // enviar lo datos a la api
-    // .then es para dar todo el tiempo del mundo y lugo de tener la respuesta hacer el codigo entre ()
-    // en el parametro se puede usar cualquier nombre pero para mayor presicion usar la misma palabra del return de queris
+    
     consultarApiUsuario(datos).then((respuesta) => {
-      console.log(respuesta)
+     
       if (respuesta) {
         localStorage.setItem("tokenUsuario", JSON.stringify(respuesta));
       
 
-        // el producto se creo
+    
         Swal.fire(
           "Inicio de sesion exitoso",
           "Has iniciado sesion correctamente",
           "success"
         );
        
-        // redireccionar
-        // navegacion('/')
+       
+        navegacion('/')
       } else {
-        // mostrar error al usuario
+     
         Swal.fire("Ocurrio un error", "Vuelva a intentarlo más tarde", "error");
       }
     });
@@ -51,7 +49,6 @@ const Login = () => {
     <section className="container mainSection">
       <h1 className="display-4 mt-5">Login</h1>
       <hr />
-      {/* <Form onSubmit={handleSubmit}> */}
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Form.Group className="mb-3" controlId="formNombreProdcuto">
           <Form.Label>Email*</Form.Label>

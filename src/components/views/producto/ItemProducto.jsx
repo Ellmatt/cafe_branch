@@ -16,10 +16,10 @@ const ItemProducto = (props) => {
       cancelButtonText: "Cancelar!",
     }).then((result) => {
       if (result.isConfirmed) {
-        // realizar la consulta a la api
+  
         borrarProductoAPI(props.producto._id).then((respuesta) => {
           if (respuesta.status === 200) {
-            // actualizar el state productos o la tabla
+        
             consultarApi().then((respuesta) => {
               props.setProductos(respuesta);
             });

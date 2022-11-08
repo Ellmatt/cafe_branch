@@ -1,8 +1,6 @@
 import React from "react";
 import { Card } from "react-bootstrap";
-import { Link} from "react-router-dom";
-
-
+import { Link } from "react-router-dom";
 
 const CardProducto = (props) => {
   return (
@@ -15,7 +13,8 @@ const CardProducto = (props) => {
       </Card.Body>
       <Card.Footer>
         <Link
-          className="btn btn-danger me-2" to={`/detalle-producto/${props.id}`}
+          className="btn btn-danger me-2"
+          to={`/detalle-producto/${props.id}`}
         >
           Ver más
         </Link>
